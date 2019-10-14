@@ -9,7 +9,8 @@ import SnapKit
 import UIKit
 
 protocol UserListDisplayLogic: AnyObject {
-  func displayUserListSuccess(user: [User])
+  func displayUserListSuccess(userList: [User])
+  func displayUserListRemovalSuccess(updatedUsersList: [User])
   func displayUserListError()
 }
 
@@ -18,6 +19,7 @@ class UserListViewController: UIViewController {
   var router: UserListRoutingLogic?
   private let dataSource = UserListDataSource()
   private lazy var contentView = UserListContentView.setupAutoLayout()
+  private var userList = [User]()
   
   init(delegate: UserListRouterDelegate?) {
     super.init(nibName: nil, bundle: nil)
@@ -30,6 +32,7 @@ class UserListViewController: UIViewController {
     router.delegate = delegate
     self.interactor = interactor
     self.router = router
+    dataSource.delegate = self
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -53,11 +56,16 @@ extension UserListViewController {
 
 // MARK: - Display Logic
 extension UserListViewController: UserListDisplayLogic {
+  func displayUserListRemovalSuccess(updatedUsersList: [User]) {
+    self.userList = updatedUsersList
+  }
+  
   func displayUserListError() {
   }
   
-  func displayUserListSuccess(user: [User]) {
-    dataSource.setData(users: user)
+  func displayUserListSuccess(userList: [User]) {
+    self.userList = userList
+    dataSource.setData(users: userList)
     contentView.tableView.reloadData()
     contentView.toggleLoading(false)
   }
@@ -80,5 +88,14 @@ private extension UserListViewController {
     contentView.snp.makeConstraints {
       $0.edges.equalToSuperview()
     }
+  }
+}
+
+// MARK: UserListDataSourceDelegate
+extension UserListViewController: UserListDataSourceDelegate {
+  func willRemoveUser(at indexPath: IndexPath) {
+    print("IndexPath  \(indexPath)")
+    interactor?.deleteUser(userList: userList, removedUser: userList[indexPath.row])
+    contentView.tableView.reloadData()
   }
 }
