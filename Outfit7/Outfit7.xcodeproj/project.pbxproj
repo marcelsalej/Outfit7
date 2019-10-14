@@ -36,6 +36,7 @@
 		34994C962354D4BA00505FF0 /* UserDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994C932354D4BA00505FF0 /* UserDownloader.swift */; };
 		34994C982354D4DA00505FF0 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994C972354D4DA00505FF0 /* Configuration.swift */; };
 		34994C9A2354D91800505FF0 /* JSONParsingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994C992354D91800505FF0 /* JSONParsingError.swift */; };
+		34994CA02354DB3A00505FF0 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 34994C9F2354DB3A00505FF0 /* .swiftlint.yml */; };
 		7C95FD1E4D56EE1B3E490C52 /* Pods_Outfit7Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77DA3D8616ADEBE4E721E9F5 /* Pods_Outfit7Tests.framework */; };
 		E954F3750316AF06F87A196F /* Pods_Outfit7.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 235EA1555361490D1F9EAAE8 /* Pods_Outfit7.framework */; };
 /* End PBXBuildFile section */
@@ -95,6 +96,7 @@
 		34994C932354D4BA00505FF0 /* UserDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDownloader.swift; sourceTree = "<group>"; };
 		34994C972354D4DA00505FF0 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		34994C992354D91800505FF0 /* JSONParsingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParsingError.swift; sourceTree = "<group>"; };
+		34994C9F2354DB3A00505FF0 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		70972DA41EF88DB5F0A216E1 /* Pods-Outfit7Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Outfit7Tests.debug.xcconfig"; path = "Target Support Files/Pods-Outfit7Tests/Pods-Outfit7Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		716202D340D01F322B447E85 /* Pods-Outfit7.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Outfit7.debug.xcconfig"; path = "Target Support Files/Pods-Outfit7/Pods-Outfit7.debug.xcconfig"; sourceTree = "<group>"; };
 		77DA3D8616ADEBE4E721E9F5 /* Pods_Outfit7Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Outfit7Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +149,7 @@
 		34994BED2354808400505FF0 = {
 			isa = PBXGroup;
 			children = (
+				34994C9F2354DB3A00505FF0 /* .swiftlint.yml */,
 				34994BF82354808400505FF0 /* Outfit7 */,
 				34994C0F2354808500505FF0 /* Outfit7Tests */,
 				34994C1A2354808500505FF0 /* Outfit7UITests */,
@@ -352,6 +355,7 @@
 				34994BF32354808400505FF0 /* Frameworks */,
 				34994BF42354808400505FF0 /* Resources */,
 				CA0FA67099DE19D2607E0409 /* [CP] Embed Pods Frameworks */,
+				34994CA12354DB5400505FF0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -449,6 +453,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34994CA02354DB3A00505FF0 /* .swiftlint.yml in Resources */,
 				34994C062354808500505FF0 /* LaunchScreen.storyboard in Resources */,
 				34994C032354808500505FF0 /* Assets.xcassets in Resources */,
 			);
@@ -531,6 +536,23 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		34994CA12354DB5400505FF0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		B7A53098808549D26F83A41A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

@@ -1,0 +1,94 @@
+# All rules are available at https://github.com/realm/SwiftLint/blob/master/Rules.md
+
+disabled_rules:
+- trailing_whitespace # Xcode adds whitespaces for each new line
+- todo # we like todos
+- nesting
+- cyclomatic_complexity
+- class_delegate_protocol
+- redundant_string_enum_value
+- unused_optional_binding
+
+opt_in_rules:
+- empty_count
+- explicit_init
+- fatal_error_message
+- first_where
+- overridden_super_call
+- switch_case_on_newline
+- yoda_condition
+- force_unwrapping
+- implicitly_unwrapped_optional
+- discouraged_optional_boolean
+- empty_string
+- fallthrough
+- file_name
+- implicit_return
+- literal_expression_end_indentation
+- operator_usage_whitespace
+- strict_fileprivate
+- trailing_closure
+- anyobject_protocol
+- array_init
+- contains_over_first_not_nil
+- discouraged_object_literal
+- for_where
+- last_where
+- identical_operands
+- legacy_random
+- modifier_order
+- pattern_matching_keywords
+- prohibited_interface_builder
+- redundant_nil_coalescing
+- sorted_first_last
+- toggle_bool
+- unused_import
+- vertical_parameter_alignment_on_call
+- vertical_whitespace_closing_braces
+- vertical_whitespace_opening_braces
+
+included:
+- Outfit7
+excluded:
+- Pods
+- Outfit7Tests
+- Outfit7UITests
+- FileTemplates
+- vendor
+- Helpers
+- .bundle
+- .vendor
+
+large_tuple:
+- 2 # warning
+- 5 # error
+
+  
+line_length:
+- 190 # warning
+- 200 # error
+
+function_body_length:
+- 70 # warning
+- 100 # error
+
+function_parameter_count:
+- 7 # warning
+- 10 # error
+
+type_body_length:
+- 450 # warning
+- 500 # error
+
+file_length:
+- 450 # warning
+- 500 # error
+
+type_name:
+max_length:
+- 50 # error
+excluded:
+- T
+- U
+- S
+- UI
