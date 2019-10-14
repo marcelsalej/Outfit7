@@ -10,4 +10,12 @@ import Foundation
 
 struct Configuration {
   static let baseUrl = "https://jsonplaceholder.typicode.com"
+  
+  static var dateFormatter: DateFormatter {
+    get {
+      let formatter = DateFormatter()
+      formatter.dateFormat = "dd-MM-YYYY"
+      return formatter
+    }
+  }
 }
