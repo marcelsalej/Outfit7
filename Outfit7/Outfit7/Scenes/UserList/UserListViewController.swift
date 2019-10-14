@@ -37,6 +37,14 @@ class UserListViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupViews()
+    fetchUserList()
+  }
+}
+
+// MARK: - Load data
+extension UserListViewController {
+  func fetchUserList() {
+    interactor?.fetchInitialUsersList()
   }
 }
 

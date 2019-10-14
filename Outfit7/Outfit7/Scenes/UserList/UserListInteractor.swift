@@ -9,14 +9,17 @@
 import Foundation
 
 protocol UserListBusinessLogic {
-  
+  func fetchInitialUsersList()
 }
 
 class UserListInteractor {
   var presenter: UserListPresentationLogic?
+  private let users: [User]? = try? User.mock()
 }
 
 // MARK: - Business Logic
 extension UserListInteractor: UserListBusinessLogic {
-  
+  func fetchInitialUsersList() {
+    print("Users: \(users)")
+  }
 }

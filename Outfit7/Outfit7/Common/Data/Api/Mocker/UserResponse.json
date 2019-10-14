@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+    "birthday": "1992-10-14T17:16:48Z",
+    "salary": 1230.0,
+    "rating": 5.2
+  },
+  {
+    "id": 2,
+    "name": "Ervin Howell",
+    "username": "Antonette",
+    "email": "Shanna@melissa.tv",
+    "birthday": "1992-12-14T17:16:48Z",
+    "salary": 1430.0,
+    "rating": 6.1
+  },
+  {
+    "id": 3,
+    "name": "Clementine Bauch",
+    "username": "Samantha",
+    "email": "Nathan@yesenia.net",
+    "birthday": "1992-10-14T17:16:48Z",
+    "salary": 1730.0,
+    "rating": 7.5
+  },
+  {
+    "id": 4,
+    "name": "Patricia Lebsack",
+    "username": "Karianne",
+    "email": "Julianne.OConner@kory.org",
+    "birthday": "1992-01-14T17:16:48Z",
+    "salary": 1800.0,
+    "rating": 8.7
+  },
+  {
+    "id": 5,
+    "name": "Chelsey Dietrich",
+    "username": "Kamren",
+    "email": "Lucio_Hettinger@annie.ca",
+    "birthday": "1993-05-14T17:16:48Z",
+    "salary": 1930.0,
+    "rating": 5.3
+  },
+  {
+    "id": 6,
+    "name": "Mrs. Dennis Schulist",
+    "username": "Leopoldo_Corkery",
+    "email": "Karley_Dach@jasper.info",
+    "birthday": "1993-11-14T17:16:48Z",
+    "salary": 1830.0,
+    "rating": 4.9
+  },
+  {
+    "id": 7,
+    "name": "Kurtis Weissnat",
+    "username": "Elwyn.Skiles",
+    "email": "Telly.Hoeger@billy.biz",
+    "birthday": "1991-08-14T17:16:48Z",
+    "salary": 1730.0,
+    "rating": 6.5
+  },
+  {
+    "id": 8,
+    "name": "Nicholas Runolfsdottir V",
+    "username": "Maxime_Nienow",
+    "email": "Sherwood@rosamond.me",
+    "birthday": "1990-10-14T17:16:48Z",
+    "salary": 1630.0,
+    "rating": 9.2
+  },
+  {
+    "id": 9,
+    "name": "Glenna Reichert",
+    "username": "Delphine",
+    "email": "Chaim_McDermott@dana.io",
+    "birthday": "1996-10-14T17:16:48Z",
+    "salary": 1530.0,
+    "rating": 3.8
+  },
+  {
+    "id": 10,
+    "name": "Clementina DuBuque",
+    "username": "Moriah.Stanton",
+    "email": "Rey.Padberg@karina.biz",
+    "birthday": "1994-10-14T17:16:48Z",
+    "salary": 2030.0,
+    "rating": 5.0
+  },
+  {
+    "id": 11,
+    "name": "Marcel Šalej",
+    "username": "Marcel.salej",
+    "email": "marcel.salej@mailinator.com",
+    "birthday": "1996-10-14T17:16:48Z",
+    "salary": 1850.0,
+    "rating": 6.8
+  }
+]
