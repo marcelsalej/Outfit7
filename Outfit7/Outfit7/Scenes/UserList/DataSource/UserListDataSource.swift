@@ -15,8 +15,15 @@ class UserListDataSource: NSObject, DataSourceProtocol {
 // MARK: - Public Methods
 extension UserListDataSource {
   func setData(users: [User]) {
-    // generate section
-    
+    var rows = [UserListRow]()
+    users.map {
+      rows.append(.user(.init(id: $0.id,
+                              name: $0.name,
+                              birthDate: $0.birthday,
+                              salary: $0.salary,
+                              rating: $0.rating)))
+    }
+    sections.append(.userList(rows: rows))
   }
 }
 
