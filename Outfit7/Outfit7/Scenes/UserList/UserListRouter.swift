@@ -9,11 +9,9 @@
 import Foundation
 
 protocol UserListRoutingLogic {
-  
 }
 
 protocol UserListRouterDelegate: AnyObject {
-  
 }
 
 class UserListRouter {
@@ -23,5 +21,4 @@ class UserListRouter {
 
 // MARK: - Routing Logic
 extension UserListRouter: UserListRoutingLogic {
-  
 }

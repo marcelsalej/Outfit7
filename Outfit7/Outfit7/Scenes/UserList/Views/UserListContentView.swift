@@ -9,6 +9,9 @@
 import UIKit
 
 class UserListContentView: UIView {
+  let activityIndicatorView = UIActivityIndicatorView.setupAutoLayout()
+  lazy var tableView = UITableView.setupAutoLayout()
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupViews()
@@ -22,7 +25,25 @@ class UserListContentView: UIView {
 // MARK: - Private Methods
 private extension UserListContentView {
   func setupViews() {
-    // setup background, shadows, etc
-    // call other views setup
+    setupTableView()
+  }
+  
+  func setupTableView() {
+    addSubview(tableView)
+    tableView.register(UserTableViewCell.self)
+    tableView.snp.makeConstraints {
+      $0.edges.equalToSuperview()
+    }
+  }
+}
+
+// MARK: - Loader
+extension UserListContentView {
+  func toggleLoading(_ isLoading: Bool) {
+    UIView.animate(withDuration: 0.2) {
+      self.tableView.alpha = isLoading ? 0 : 1
+      self.activityIndicatorView.alpha = isLoading ? 1 : 0
+    }
+    isLoading ? activityIndicatorView.startAnimating() : activityIndicatorView.stopAnimating()
   }
 }

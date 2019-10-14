@@ -9,7 +9,8 @@
 import Foundation
 
 protocol UserListPresentationLogic {
-  func presentUserList(userList: [User])
+  func presentUserListSuccess(userList: [User])
+  func presentUserListError()
 }
 
 class UserListPresenter {
@@ -18,6 +19,12 @@ class UserListPresenter {
 
 // MARK: - Presentation Logic
 extension UserListPresenter: UserListPresentationLogic {
-  func presentUserList(userList: [User]) {
+  func presentUserListSuccess(userList: [User]) {
+    let sortedList = userList.sorted { $0.name < $1.name }
+    viewController?.displayUserListSuccess(user: sortedList)
+  }
+  
+  func presentUserListError() {
+    viewController?.displayUserListError()
   }
 }

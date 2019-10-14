@@ -16,6 +16,7 @@ protocol UserListDisplayLogic: AnyObject {
 class UserListViewController: UIViewController {
   var interactor: UserListBusinessLogic?
   var router: UserListRoutingLogic?
+  private let dataSource = UserListDataSource()
   private lazy var contentView = UserListContentView.setupAutoLayout()
   
   init(delegate: UserListRouterDelegate?) {
@@ -45,6 +46,7 @@ class UserListViewController: UIViewController {
 // MARK: - Load data
 extension UserListViewController {
   func fetchUserList() {
+    contentView.toggleLoading(true)
     interactor?.fetchInitialUsersList()
   }
 }
@@ -55,19 +57,26 @@ extension UserListViewController: UserListDisplayLogic {
   }
   
   func displayUserListSuccess(user: [User]) {
-    
+    dataSource.setData(users: user)
+    contentView.tableView.reloadData()
+    contentView.toggleLoading(false)
   }
 }
 
 // MARK: - Private Methods
 private extension UserListViewController {
   func setupViews() {
-    // setup title, background, navigation buttons, etc
     setupContentView()
+    setupNavigationHeader()
+  }
+  
+  func setupNavigationHeader() {
+    navigationItem.title = "Users"
   }
   
   func setupContentView() {
     view.addSubview(contentView)
+    contentView.tableView.dataSource = dataSource
     contentView.snp.makeConstraints {
       $0.edges.equalToSuperview()
     }
