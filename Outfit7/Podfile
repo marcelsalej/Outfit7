@@ -8,8 +8,6 @@ target 'Outfit7' do
   # Pods for Outfit7
    pod 'SnapKit'
    pod 'SwiftLint'
-   pod 'Alamofire', '~> 5.0.0-beta.6'
-   pod 'Kingfisher' 
 
   target 'Outfit7Tests' do
     inherit! :search_paths
