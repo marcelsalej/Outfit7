@@ -20,8 +20,6 @@
 		34994C45235484F500505FF0 /* DataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994C3A235484F400505FF0 /* DataSourceProtocol.swift */; };
 		34994C46235484F500505FF0 /* SectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994C3B235484F400505FF0 /* SectionProtocol.swift */; };
 		34994C47235484F500505FF0 /* UIFont+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994C3C235484F400505FF0 /* UIFont+Extra.swift */; };
-		34994C48235484F500505FF0 /* DataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994C3D235484F400505FF0 /* DataSourceProtocol.swift */; };
-		34994C49235484F500505FF0 /* SectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994C3E235484F400505FF0 /* SectionProtocol.swift */; };
 		34994C4A235484F500505FF0 /* UITableView+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994C3F235484F400505FF0 /* UITableView+Extra.swift */; };
 		34994C4B235484F500505FF0 /* UICollectionView+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994C40235484F400505FF0 /* UICollectionView+Extra.swift */; };
 		34994C4C235484F500505FF0 /* UITableViewCell+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994C41235484F400505FF0 /* UITableViewCell+Extra.swift */; };
@@ -38,6 +36,11 @@
 		34994C762354857C00505FF0 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994C662354857C00505FF0 /* EndpointProtocol.swift */; };
 		34994C772354857C00505FF0 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994C672354857C00505FF0 /* NetworkError.swift */; };
 		34994C782354857C00505FF0 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994C682354857C00505FF0 /* Endpoint.swift */; };
+		34994C7F23548C5100505FF0 /* UserListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994C7A23548C5100505FF0 /* UserListContentView.swift */; };
+		34994C8023548C5100505FF0 /* UserListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994C7B23548C5100505FF0 /* UserListPresenter.swift */; };
+		34994C8123548C5100505FF0 /* UserListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994C7C23548C5100505FF0 /* UserListRouter.swift */; };
+		34994C8223548C5100505FF0 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994C7D23548C5100505FF0 /* UserListViewController.swift */; };
+		34994C8323548C5100505FF0 /* UserListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994C7E23548C5100505FF0 /* UserListInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +98,11 @@
 		34994C662354857C00505FF0 /* EndpointProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointProtocol.swift; sourceTree = "<group>"; };
 		34994C672354857C00505FF0 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		34994C682354857C00505FF0 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		34994C7A23548C5100505FF0 /* UserListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListContentView.swift; sourceTree = "<group>"; };
+		34994C7B23548C5100505FF0 /* UserListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListPresenter.swift; sourceTree = "<group>"; };
+		34994C7C23548C5100505FF0 /* UserListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListRouter.swift; sourceTree = "<group>"; };
+		34994C7D23548C5100505FF0 /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
+		34994C7E23548C5100505FF0 /* UserListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,8 +321,21 @@
 		34994C79235485CF00505FF0 /* UserList */ = {
 			isa = PBXGroup;
 			children = (
+				34994C8423548CF600505FF0 /* Views */,
+				34994C7A23548C5100505FF0 /* UserListContentView.swift */,
+				34994C7B23548C5100505FF0 /* UserListPresenter.swift */,
+				34994C7C23548C5100505FF0 /* UserListRouter.swift */,
+				34994C7D23548C5100505FF0 /* UserListViewController.swift */,
+				34994C7E23548C5100505FF0 /* UserListInteractor.swift */,
 			);
 			path = UserList;
+			sourceTree = "<group>";
+		};
+		34994C8423548CF600505FF0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,17 +471,19 @@
 				34994C4C235484F500505FF0 /* UITableViewCell+Extra.swift in Sources */,
 				34994C772354857C00505FF0 /* NetworkError.swift in Sources */,
 				34994C35235484A700505FF0 /* AppFlowController.swift in Sources */,
-				34994C49235484F500505FF0 /* SectionProtocol.swift in Sources */,
 				34994BFA2354808400505FF0 /* AppDelegate.swift in Sources */,
 				34994C4B235484F500505FF0 /* UICollectionView+Extra.swift in Sources */,
-				34994C48235484F500505FF0 /* DataSourceProtocol.swift in Sources */,
 				34994C732354857C00505FF0 /* NetworkClientProtocol.swift in Sources */,
+				34994C8023548C5100505FF0 /* UserListPresenter.swift in Sources */,
+				34994C8323548C5100505FF0 /* UserListInteractor.swift in Sources */,
+				34994C8123548C5100505FF0 /* UserListRouter.swift in Sources */,
 				34994C45235484F500505FF0 /* DataSourceProtocol.swift in Sources */,
 				34994C44235484F500505FF0 /* UICollectionViewCell+Extra.swift in Sources */,
 				34994C512354850C00505FF0 /* Logger.swift in Sources */,
 				34994C47235484F500505FF0 /* UIFont+Extra.swift in Sources */,
 				34994C702354857C00505FF0 /* AlbumsService.swift in Sources */,
 				34994C742354857C00505FF0 /* JSONEncoder+Extra.swift in Sources */,
+				34994C8223548C5100505FF0 /* UserListViewController.swift in Sources */,
 				34994C722354857C00505FF0 /* NetworkClient.swift in Sources */,
 				34994C712354857C00505FF0 /* AlbumsDownloader.swift in Sources */,
 				34994C312354849800505FF0 /* Process.swift in Sources */,
@@ -468,6 +491,7 @@
 				34994C322354849800505FF0 /* Service.swift in Sources */,
 				34994C4E235484F500505FF0 /* Collection+Extra.swift in Sources */,
 				34994C332354849800505FF0 /* InitialSceneSetupService.swift in Sources */,
+				34994C7F23548C5100505FF0 /* UserListContentView.swift in Sources */,
 				34994C4A235484F500505FF0 /* UITableView+Extra.swift in Sources */,
 				34994C46235484F500505FF0 /* SectionProtocol.swift in Sources */,
 				34994C6F2354857C00505FF0 /* Album.swift in Sources */,
