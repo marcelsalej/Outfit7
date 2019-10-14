@@ -15,7 +15,7 @@ protocol UserListDisplayLogic: AnyObject {
 class UserListViewController: UIViewController {
   var interactor: UserListBusinessLogic?
   var router: UserListRoutingLogic?
-  private lazy var contentView = UserListContentView.autolayoutView()
+  private lazy var contentView = UserListContentView.setupAutoLayout()
   
   init(delegate: UserListRouterDelegate?) {
     super.init(nibName: nil, bundle: nil)

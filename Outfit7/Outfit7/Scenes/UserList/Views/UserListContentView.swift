@@ -20,7 +20,7 @@ class UserListContentView: UIView {
 }
 
 // MARK: - Private Methods
-private extension userListContentView {
+private extension UserListContentView {
   func setupViews() {
     // setup background, shadows, etc
     // call other views setup
