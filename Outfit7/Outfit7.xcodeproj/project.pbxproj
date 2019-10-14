@@ -47,12 +47,13 @@
 		34994CDA2355096B00505FF0 /* AddUserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994CCF2355096B00505FF0 /* AddUserDataSource.swift */; };
 		34994CDB2355096B00505FF0 /* AddUserRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994CD02355096B00505FF0 /* AddUserRow.swift */; };
 		34994CDC2355096B00505FF0 /* AddUserSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994CD12355096B00505FF0 /* AddUserSection.swift */; };
-		34994CDD2355096B00505FF0 /* AddUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994CD32355096B00505FF0 /* AddUserTableViewCell.swift */; };
+		34994CDD2355096B00505FF0 /* InputTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994CD32355096B00505FF0 /* InputTextTableViewCell.swift */; };
 		34994CDE2355096B00505FF0 /* AddUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994CD42355096B00505FF0 /* AddUserPresenter.swift */; };
 		34994CDF2355096B00505FF0 /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994CD52355096B00505FF0 /* AddUserViewController.swift */; };
 		34994CE02355096B00505FF0 /* AddUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994CD62355096B00505FF0 /* AddUserInteractor.swift */; };
 		34994CE12355096B00505FF0 /* AddUserContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994CD82355096B00505FF0 /* AddUserContentView.swift */; };
 		34994CE22355096B00505FF0 /* AddUserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994CD92355096B00505FF0 /* AddUserRouter.swift */; };
+		34994CE62355151200505FF0 /* InputDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994CE52355151200505FF0 /* InputDateTableViewCell.swift */; };
 		7C95FD1E4D56EE1B3E490C52 /* Pods_Outfit7Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77DA3D8616ADEBE4E721E9F5 /* Pods_Outfit7Tests.framework */; };
 		E954F3750316AF06F87A196F /* Pods_Outfit7.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 235EA1555361490D1F9EAAE8 /* Pods_Outfit7.framework */; };
 /* End PBXBuildFile section */
@@ -122,12 +123,13 @@
 		34994CCF2355096B00505FF0 /* AddUserDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserDataSource.swift; sourceTree = "<group>"; };
 		34994CD02355096B00505FF0 /* AddUserRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserRow.swift; sourceTree = "<group>"; };
 		34994CD12355096B00505FF0 /* AddUserSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserSection.swift; sourceTree = "<group>"; };
-		34994CD32355096B00505FF0 /* AddUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserTableViewCell.swift; sourceTree = "<group>"; };
+		34994CD32355096B00505FF0 /* InputTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTextTableViewCell.swift; sourceTree = "<group>"; };
 		34994CD42355096B00505FF0 /* AddUserPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserPresenter.swift; sourceTree = "<group>"; };
 		34994CD52355096B00505FF0 /* AddUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserViewController.swift; sourceTree = "<group>"; };
 		34994CD62355096B00505FF0 /* AddUserInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserInteractor.swift; sourceTree = "<group>"; };
 		34994CD82355096B00505FF0 /* AddUserContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserContentView.swift; sourceTree = "<group>"; };
 		34994CD92355096B00505FF0 /* AddUserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserRouter.swift; sourceTree = "<group>"; };
+		34994CE52355151200505FF0 /* InputDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDateTableViewCell.swift; sourceTree = "<group>"; };
 		70972DA41EF88DB5F0A216E1 /* Pods-Outfit7Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Outfit7Tests.debug.xcconfig"; path = "Target Support Files/Pods-Outfit7Tests/Pods-Outfit7Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		716202D340D01F322B447E85 /* Pods-Outfit7.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Outfit7.debug.xcconfig"; path = "Target Support Files/Pods-Outfit7/Pods-Outfit7.debug.xcconfig"; sourceTree = "<group>"; };
 		77DA3D8616ADEBE4E721E9F5 /* Pods_Outfit7Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Outfit7Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -340,6 +342,7 @@
 			children = (
 				34994CCC2355096B00505FF0 /* Subscenes */,
 				34994CAA2354E93300505FF0 /* Cells */,
+				34994C8923548FF500505FF0 /* Views */,
 				34994CA92354E92100505FF0 /* DataSource */,
 				34994C8A23548FF500505FF0 /* UserListInteractor.swift */,
 				34994C8823548FF500505FF0 /* UserListPresenter.swift */,
@@ -390,7 +393,6 @@
 				34994CAB2354E94400505FF0 /* UserListSection.swift */,
 				34994CAC2354E94400505FF0 /* UserListDataSource.swift */,
 				34994CAD2354E94400505FF0 /* UserListRow.swift */,
-				34994C8923548FF500505FF0 /* Views */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -438,7 +440,8 @@
 		34994CD22355096B00505FF0 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				34994CD32355096B00505FF0 /* AddUserTableViewCell.swift */,
+				34994CD32355096B00505FF0 /* InputTextTableViewCell.swift */,
+				34994CE52355151200505FF0 /* InputDateTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -754,7 +757,8 @@
 				34994CA82354DE6000505FF0 /* DateFormatter+Extra.swift in Sources */,
 				34994C332354849800505FF0 /* InitialSceneSetupService.swift in Sources */,
 				34994C8D23548FF500505FF0 /* UserListViewController.swift in Sources */,
-				34994CDD2355096B00505FF0 /* AddUserTableViewCell.swift in Sources */,
+				34994CE62355151200505FF0 /* InputDateTableViewCell.swift in Sources */,
+				34994CDD2355096B00505FF0 /* InputTextTableViewCell.swift in Sources */,
 				34994C4A235484F500505FF0 /* UITableView+Extra.swift in Sources */,
 				34994CAE2354E94400505FF0 /* UserListSection.swift in Sources */,
 				34994C46235484F500505FF0 /* SectionProtocol.swift in Sources */,
