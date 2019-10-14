@@ -20,6 +20,10 @@ class UserListInteractor {
 // MARK: - Business Logic
 extension UserListInteractor: UserListBusinessLogic {
   func fetchInitialUsersList() {
-    print("Users: \(users)")
+    users.map {
+      self.presenter?.presentUserListSuccess(userList: $0)
+      return
+    }
+    self.presenter?.presentUserListError()
   }
 }
