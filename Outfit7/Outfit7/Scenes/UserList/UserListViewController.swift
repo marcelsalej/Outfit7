@@ -5,11 +5,12 @@
 //  Created by Marcel Salej on 14/10/2019.
 //  Copyright © 2019 Marcel Salej. All rights reserved.
 //
-
+import SnapKit
 import UIKit
 
 protocol UserListDisplayLogic: AnyObject {
-  
+  func displayUserListSuccess(user: [User])
+  func displayUserListError()
 }
 
 class UserListViewController: UIViewController {
@@ -50,7 +51,12 @@ extension UserListViewController {
 
 // MARK: - Display Logic
 extension UserListViewController: UserListDisplayLogic {
+  func displayUserListError() {
+  }
   
+  func displayUserListSuccess(user: [User]) {
+    
+  }
 }
 
 // MARK: - Private Methods
@@ -62,6 +68,8 @@ private extension UserListViewController {
   
   func setupContentView() {
     view.addSubview(contentView)
-    // add constraints
+    contentView.snp.makeConstraints {
+      $0.edges.equalToSuperview()
+    }
   }
 }

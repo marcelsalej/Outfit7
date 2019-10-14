@@ -9,7 +9,7 @@
 import Foundation
 
 protocol UserListPresentationLogic {
-  
+  func presentUserList(userList: [User])
 }
 
 class UserListPresenter {
@@ -18,5 +18,6 @@ class UserListPresenter {
 
 // MARK: - Presentation Logic
 extension UserListPresenter: UserListPresentationLogic {
-  
+  func presentUserList(userList: [User]) {
+  }
 }
