@@ -10,6 +10,7 @@ import Foundation
 
 protocol UserListBusinessLogic {
   func fetchInitialUsersList()
+  func deleteUser(userList: [User], removedUser: User)
 }
 
 class UserListInteractor {
@@ -25,5 +26,13 @@ extension UserListInteractor: UserListBusinessLogic {
       return
     }
     self.presenter?.presentUserListError()
+  }
+  
+  func deleteUser(userList: [User], removedUser: User) {
+    var users = userList
+    users.firstIndex(where: {$0.id == removedUser.id }).map { id in
+      users.remove(at: id)
+      self.presenter?.presentUserListSuccess(userList: users)
+    }
   }
 }

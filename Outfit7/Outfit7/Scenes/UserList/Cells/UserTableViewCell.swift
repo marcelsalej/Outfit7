@@ -98,7 +98,6 @@ private extension UserTableViewCell {
     ratingLabel.snp.makeConstraints {
       $0.top.equalTo(salaryLabel.snp.bottom).offset(5)
       $0.leading.trailing.bottom.equalToSuperview().inset(15)
-     
     }
   }
 }
