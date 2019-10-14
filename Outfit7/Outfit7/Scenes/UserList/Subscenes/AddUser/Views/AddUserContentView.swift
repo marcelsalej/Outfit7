@@ -13,7 +13,6 @@ class AddUserContentView: UIView {
   lazy var tableView = UITableView.setupAutoLayout()
   let saveButton = UIButton.setupAutoLayout()
  
-  
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupViews()
@@ -33,6 +32,8 @@ private extension AddUserContentView {
   
   func setupTableView() {
     addSubview(tableView)
+    tableView.register(InputTextTableViewCell.self)
+    tableView.register(InputDateTableViewCell.self)
     tableView.snp.makeConstraints {
       $0.top.equalTo(closeButton.snp.bottom).inset(15)
       $0.leading.trailing.equalToSuperview()

@@ -14,7 +14,7 @@ class AddUserDataSource: NSObject, DataSourceProtocol {
 
 // MARK: - Public Methods
 extension AddUserDataSource {
-  func setData() {
+  func setData(user: User?) {
   }
 }
 
@@ -35,8 +35,12 @@ extension AddUserDataSource: UITableViewDataSource {
     }
     
     switch row {
-    case .input(let viewModel):
-      let cell = tableView.dequeueReusableCell(AddUserTableViewCell.self, at: indexPath)
+    case .inputText(let viewModel):
+      let cell = tableView.dequeueReusableCell(InputTextTableViewCell.self, at: indexPath)
+      cell.setData(viewModel)
+      return cell
+    case .inputDate(let viewModel):
+      let cell = tableView.dequeueReusableCell(InputDateTableViewCell.self, at: indexPath)
       cell.setData(viewModel)
       return cell
     }

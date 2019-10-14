@@ -15,9 +15,12 @@ protocol AddUserDisplayLogic: AnyObject {
 class AddUserViewController: UIViewController {
   var interactor: AddUserBusinessLogic?
   var router: AddUserRoutingLogic?
-  private lazy var contentView = AddUserContentView.autolayoutView()
+  private lazy var contentView = AddUserContentView.setupAutoLayout()
+  private let dataSource = AddUserDataSource()
+  private var user: User? = nil
   
-  init(delegate: AddUserRouterDelegate?) {
+  init(delegate: AddUserRouterDelegate?, user: User?) {
+    self.user = user
     super.init(nibName: nil, bundle: nil)
     let interactor = AddUserInteractor()
     let presenter = AddUserPresenter()
@@ -37,12 +40,20 @@ class AddUserViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupViews()
+    setData()
+  }
+}
+
+// MARK: - Set data
+private extension AddUserViewController {
+  func setData() {
+    dataSource.setData(user: user)
+    contentView.tableView.reloadData()
   }
 }
 
 // MARK: - Display Logic
 extension AddUserViewController: AddUserDisplayLogic {
-  
 }
 
 // MARK: - Private Methods
@@ -54,6 +65,9 @@ private extension AddUserViewController {
   
   func setupContentView() {
     view.addSubview(contentView)
-    // add constraints
+    contentView.tableView.dataSource = dataSource
+    contentView.snp.makeConstraints {
+      $0.edges.equalToSuperview()
+    }
   }
 }
