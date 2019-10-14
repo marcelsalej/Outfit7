@@ -8,6 +8,6 @@
 
 import UIKit
 
-enum AddUserRow: RowType {
-  // define cases for each row, e.g. `case history(HistoryModel)`
+enum AddUserRow {
+  case input(AddUserTableViewCell.ViewModel)
 }

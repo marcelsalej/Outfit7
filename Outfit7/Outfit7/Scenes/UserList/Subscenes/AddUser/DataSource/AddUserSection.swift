@@ -8,14 +8,13 @@
 
 import Foundation
 
-enum AddUserSection: SectionType {
-  // defines cases for each section, e.g. `case history(rows: [HistoryRow])`
+enum AddUserSection: SectionProtocol {
+  case form(rows: [AddUserRow])
   
   var rows: [AddUserRow] {
-    // return rows for each section, e.g.
-    //switch self {
-    //case .history(let rows):
-    //  return rows
-    //}
+    switch self {
+    case .form(let rows):
+      return rows
+    }
   }
 }

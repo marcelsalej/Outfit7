@@ -8,20 +8,14 @@
 
 import UIKit
 
-class AddUserDataSource: NSObject, DataSourceType {
+class AddUserDataSource: NSObject, DataSourceProtocol {
   var sections: [AddUserSection] = []
-  
-  //init(data ...) {
-  //  // generate sections
-  //}
 }
 
 // MARK: - Public Methods
 extension AddUserDataSource {
-  //func setData(...) {
-  //  // generate section
-  //  //sections = [section]
-  //}
+  func setData() {
+  }
 }
 
 // MARK: - UITableView DataSource
@@ -31,7 +25,7 @@ extension AddUserDataSource: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return numberOfRowsInSection(at: section)
+    return numberOfRows(in: section)
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,7 +35,10 @@ extension AddUserDataSource: UITableViewDataSource {
     }
     
     switch row {
-      // return cell for each type
+    case .input(let viewModel):
+      let cell = tableView.dequeueReusableCell(AddUserTableViewCell.self, at: indexPath)
+      cell.setData(viewModel)
+      return cell
     }
   }
 }

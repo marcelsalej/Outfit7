@@ -341,7 +341,6 @@
 				34994CCC2355096B00505FF0 /* Subscenes */,
 				34994CAA2354E93300505FF0 /* Cells */,
 				34994CA92354E92100505FF0 /* DataSource */,
-				34994C8923548FF500505FF0 /* Views */,
 				34994C8A23548FF500505FF0 /* UserListInteractor.swift */,
 				34994C8823548FF500505FF0 /* UserListPresenter.swift */,
 				34994C8623548FF400505FF0 /* UserListRouter.swift */,
@@ -391,6 +390,7 @@
 				34994CAB2354E94400505FF0 /* UserListSection.swift */,
 				34994CAC2354E94400505FF0 /* UserListDataSource.swift */,
 				34994CAD2354E94400505FF0 /* UserListRow.swift */,
+				34994C8923548FF500505FF0 /* Views */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
