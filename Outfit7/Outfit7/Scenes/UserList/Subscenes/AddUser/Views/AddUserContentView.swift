@@ -66,13 +66,3 @@ private extension AddUserContentView {
     }
   }
 }
-
-// MARK: - AppEventObserver
-extension AddUserContentView: AppEventObserver {
-  func keyboardWillShow(animationDuration: CGFloat, keyboardSize: CGSize) {
-   
-  }
-  
-  func keyboardWillHide(animationDuration: CGFloat, keyboardSize: CGSize) {
-  }
-}

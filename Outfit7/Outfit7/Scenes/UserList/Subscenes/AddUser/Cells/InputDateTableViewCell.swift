@@ -61,17 +61,6 @@ private extension InputDateTableViewCell {
   
   func setupInputDateTextField() {
     addSubview(inputDateTextField)
-    // datepicker toolbar setup
-    let toolBar = UIToolbar()
-    toolBar.barStyle = .default
-    toolBar.isTranslucent = true
-    let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-    let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didCloseDatePicker))
-    toolBar.setItems([space, doneButton], animated: false)
-    toolBar.isUserInteractionEnabled = true
-    toolBar.sizeToFit()
-    
-    inputDateTextField.inputAccessoryView = toolBar
     inputDateTextField.inputView = datePicker
     inputDateTextField.snp.makeConstraints {
       $0.top.equalTo(placeholderLabel.snp.bottom).offset(5)

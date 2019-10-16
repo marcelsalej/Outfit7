@@ -54,16 +54,6 @@ private extension InputTextTableViewCell {
   
   func setupInputTextField() {
     addSubview(inputTextField)
-    // datepicker toolbar setup
-    let toolBar = UIToolbar()
-    toolBar.barStyle = .default
-    toolBar.isTranslucent = true
-    let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-    let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didCloseInputText))
-    toolBar.setItems([space, doneButton], animated: false)
-    toolBar.isUserInteractionEnabled = true
-    toolBar.sizeToFit()
-    inputTextField.inputView = toolBar
     inputTextField.delegate = self
     inputTextField.snp.makeConstraints {
       $0.top.equalTo(placeholderLabel.snp.bottom).offset(5)
@@ -101,9 +91,5 @@ extension InputTextTableViewCell: UITextFieldDelegate {
   
   func textFieldDidBeginEditing(_ textField: UITextField) {
     textField.becomeFirstResponder()
-  }
-  
-  @objc func didCloseInputText() {
-    inputTextField.resignFirstResponder()
   }
 }
