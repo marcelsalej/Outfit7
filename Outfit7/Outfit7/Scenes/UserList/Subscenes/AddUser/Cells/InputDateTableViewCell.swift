@@ -11,6 +11,15 @@ import UIKit
 class InputDateTableViewCell: UITableViewCell {
   private let placeholderLabel = UILabel.setupAutoLayout()
   private let inputDateTextField = UITextField.setupAutoLayout()
+  private let separatorView = UIView.setupAutoLayout()
+  lazy var datePicker: UIDatePicker = {
+    let picker = UIDatePicker()
+    picker.datePickerMode = .date
+    picker.addTarget(self, action: #selector(didChooseDateInPicker), for: .valueChanged)
+    return picker
+  }()
+  
+  var editingEnded: ((String) -> Void)?
   
   // MARK: - Init methods
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -39,22 +48,45 @@ private extension InputDateTableViewCell {
   func setupViews() {
     setupPlaceholderLabel()
     setupInputDateTextField()
+    setupSeparatorView()
   }
   
   func setupPlaceholderLabel() {
     addSubview(placeholderLabel)
     placeholderLabel.font = UIFont.boldSystemFont(ofSize: 12)
     placeholderLabel.snp.makeConstraints {
-      $0.top.equalToSuperview()
-      $0.leading.trailing.equalToSuperview()
+      $0.top.leading.trailing.equalToSuperview().inset(15)
     }
   }
   
   func setupInputDateTextField() {
     addSubview(inputDateTextField)
+    // datepicker toolbar setup
+    let toolBar = UIToolbar()
+    toolBar.barStyle = .default
+    toolBar.isTranslucent = true
+    let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didCloseDatePicker))
+    toolBar.setItems([space, doneButton], animated: false)
+    toolBar.isUserInteractionEnabled = true
+    toolBar.sizeToFit()
+    
+    inputDateTextField.inputAccessoryView = toolBar
+    inputDateTextField.inputView = datePicker
     inputDateTextField.snp.makeConstraints {
-      $0.top.equalTo(inputDateTextField.snp.bottom).offset(5)
-      $0.leading.trailing.bottom.equalToSuperview()
+      $0.top.equalTo(placeholderLabel.snp.bottom).offset(5)
+      $0.leading.trailing.equalToSuperview().inset(15)
+    }
+  }
+  
+  func setupSeparatorView() {
+    addSubview(separatorView)
+    separatorView.backgroundColor = .gray
+    separatorView.snp.makeConstraints {
+      $0.top.equalTo(inputDateTextField.snp.bottom).offset(15)
+      $0.leading.trailing.equalToSuperview().inset(10)
+      $0.height.equalTo(1)
+      $0.bottom.equalToSuperview()
     }
   }
 }
@@ -64,5 +96,22 @@ extension InputDateTableViewCell {
   struct ViewModel {
     let placeholderText: String
     let insertedDate: Date?
+    let validationStatus: ValidationStatusType
+  }
+}
+
+// MARK: - Action method date picker
+
+extension InputDateTableViewCell {
+  @objc func didChooseDateInPicker(sender: UIDatePicker) {
+    inputDateTextField.text = Configuration.dateFormatter.string(from: sender.date)
+  }
+  
+  @objc func didCloseDatePicker() {
+    endEditing(true)
+   }
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    editingEnded?(inputDateTextField.text ?? "")
   }
 }

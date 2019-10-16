@@ -17,22 +17,29 @@ extension AddUserDataSource {
   func setData(user: User?) {
     sections.removeAll()
     var rows = [AddUserRow]()
-    rows.append(.inputText(.init(placeholderLabel: "Name:", insertedString: user?.name ?? "")))
-    rows.append(.inputText(.init(placeholderLabel: "Username:", insertedString: user?.username ?? "")))
-    rows.append(.inputText(.init(placeholderLabel: "Email:", insertedString: user?.email ?? "")))
-    rows.append(.inputDate(.init(placeholderText: "Birth date", insertedDate: user?.birthday)))
-    rows.append(.inputText(.init(placeholderLabel: "Salary", insertedString: String(format: "%.2f", user?.salary ?? ""))))
-    rows.append(.inputText(.init(placeholderLabel: "Rating", insertedString: String(format: "%.2f", user?.rating ?? ""))))
+    rows.append(.inputText(.init(placeholderLabel: "Name:",
+                                 insertedString: user?.name ?? "",
+                                 validationStatus: .new)))
+    rows.append(.inputText(.init(placeholderLabel: "Username:",
+                                 insertedString: user?.username ?? "",
+                                 validationStatus: .new)))
+    rows.append(.inputText(.init(placeholderLabel: "Email:",
+                                 insertedString: user?.email ?? "",
+                                 validationStatus: .new)))
+    rows.append(.inputDate(.init(placeholderText: "Birth date",
+                                 insertedDate: user?.birthday,
+                                 validationStatus: .new)))
+    rows.append(.inputText(.init(placeholderLabel: "Salary",
+                                 insertedString: user?.salary != nil ? String(format: "%.2f",
+                                                                              user?.salary ?? "") : "",
+                                 validationStatus: .new)))
+    rows.append(.inputText(.init(placeholderLabel: "Rating",
+                                 insertedString: user?.rating != nil ? String(format: "%2.f",
+                                                                              user?.rating ?? "") : "",
+                                 validationStatus: .new)))
     
     sections.append(.form(rows: rows))
   }
-  
-  /*let name: String
-   let birthday: Date
-   let username: String
-   let email: String
-   let salary: Double
-   let rating: Double*/
 }
 
 // MARK: - UITableView DataSource

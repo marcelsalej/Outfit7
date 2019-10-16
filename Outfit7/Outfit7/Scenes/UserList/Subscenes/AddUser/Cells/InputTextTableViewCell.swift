@@ -12,6 +12,9 @@ import UIKit
 class InputTextTableViewCell: UITableViewCell {
   private let placeholderLabel = UILabel.setupAutoLayout()
   private let inputTextField = UITextField.setupAutoLayout()
+  private let placeholderView = UIView.setupAutoLayout()
+  
+  var editingEnded: ((String) -> Void)?
   
   // MARK: - Init methods
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -28,6 +31,7 @@ class InputTextTableViewCell: UITableViewCell {
 extension InputTextTableViewCell {
   func setData(_ viewModel: ViewModel) {
     placeholderLabel.text = viewModel.placeholderLabel
+    inputTextField.placeholder = viewModel.insertedString.isEmpty ? String(format: "Insert %@", viewModel.placeholderLabel) : viewModel.insertedString
     inputTextField.text = viewModel.insertedString
   }
 }
@@ -36,6 +40,7 @@ private extension InputTextTableViewCell {
   func setupViews() {
     setupPlaceholderLabel()
     setupInputTextField()
+    setupPlaceHolderView()
   }
   
   func setupPlaceholderLabel() {
@@ -43,15 +48,37 @@ private extension InputTextTableViewCell {
     placeholderLabel.font = UIFont.boldSystemFont(ofSize: 12)
     placeholderLabel.textAlignment = .left
     placeholderLabel.snp.makeConstraints {
-      $0.top.leading.trailing.equalToSuperview()
+      $0.top.leading.trailing.equalToSuperview().inset(15)
     }
   }
   
   func setupInputTextField() {
     addSubview(inputTextField)
+    // datepicker toolbar setup
+    let toolBar = UIToolbar()
+    toolBar.barStyle = .default
+    toolBar.isTranslucent = true
+    let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didCloseInputText))
+    toolBar.setItems([space, doneButton], animated: false)
+    toolBar.isUserInteractionEnabled = true
+    toolBar.sizeToFit()
+    inputTextField.inputView = toolBar
+    inputTextField.delegate = self
     inputTextField.snp.makeConstraints {
       $0.top.equalTo(placeholderLabel.snp.bottom).offset(5)
-      $0.leading.trailing.bottom.equalToSuperview()
+      $0.leading.trailing.equalToSuperview().inset(15)
+    }
+  }
+  
+  func setupPlaceHolderView() {
+    addSubview(placeholderView)
+    placeholderView.backgroundColor = .gray
+    placeholderView.snp.makeConstraints {
+      $0.top.equalTo(inputTextField.snp.bottom).offset(15)
+      $0.leading.trailing.equalToSuperview().inset(10)
+      $0.height.equalTo(1)
+      $0.bottom.equalToSuperview().inset(15)
     }
   }
 }
@@ -61,5 +88,22 @@ extension InputTextTableViewCell {
   struct ViewModel {
     let placeholderLabel: String
     let insertedString: String
+    let validationStatus: ValidationStatusType
+  }
+}
+
+// MARK: UItextViewDelegate
+extension InputTextTableViewCell: UITextFieldDelegate {
+  func textFieldDidEndEditing(_ textField: UITextField) {
+    textField.resignFirstResponder()
+    editingEnded?(textField.text ?? "")
+  }
+  
+  func textFieldDidBeginEditing(_ textField: UITextField) {
+    textField.becomeFirstResponder()
+  }
+  
+  @objc func didCloseInputText() {
+    inputTextField.resignFirstResponder()
   }
 }

@@ -35,6 +35,7 @@ private extension AddUserContentView {
     addSubview(tableView)
     tableView.register(InputTextTableViewCell.self)
     tableView.register(InputDateTableViewCell.self)
+    tableView.separatorStyle = .none
     tableView.snp.makeConstraints {
       $0.top.equalTo(closeButton.snp.bottom).offset(10)
       $0.leading.trailing.equalToSuperview()
@@ -44,6 +45,9 @@ private extension AddUserContentView {
   func setupSaveButton() {
     addSubview(saveButton)
     saveButton.backgroundColor = .green
+    saveButton.setTitle("Save".uppercased(), for: .normal)
+    saveButton.setTitleColor(.white, for: .normal)
+    saveButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
     saveButton.snp.makeConstraints {
       $0.top.equalTo(tableView.snp.bottom)
       $0.leading.trailing.equalToSuperview()
@@ -60,5 +64,15 @@ private extension AddUserContentView {
       $0.trailing.equalToSuperview().inset(15)
       $0.width.height.equalTo(100)
     }
+  }
+}
+
+// MARK: - AppEventObserver
+extension AddUserContentView: AppEventObserver {
+  func keyboardWillShow(animationDuration: CGFloat, keyboardSize: CGSize) {
+   
+  }
+  
+  func keyboardWillHide(animationDuration: CGFloat, keyboardSize: CGSize) {
   }
 }
