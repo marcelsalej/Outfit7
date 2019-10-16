@@ -17,7 +17,7 @@ class AddUserViewController: UIViewController {
   var router: AddUserRoutingLogic?
   private lazy var contentView = AddUserContentView.setupAutoLayout()
   private let dataSource = AddUserDataSource()
-  private var user: User? = nil
+  private var user: User?
   
   init(delegate: AddUserRouterDelegate?, user: User?) {
     self.user = user
@@ -65,9 +65,23 @@ private extension AddUserViewController {
   
   func setupContentView() {
     view.addSubview(contentView)
+    contentView.backgroundColor = .white
     contentView.tableView.dataSource = dataSource
+    contentView.closeButton.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
     contentView.snp.makeConstraints {
       $0.edges.equalToSuperview()
     }
+    switch user {
+    case .some:
+      contentView.closeButton.isHidden = true
+    case .none:
+      contentView.closeButton.isHidden = false
+    }
+  }
+}
+
+private extension AddUserViewController {
+  @objc func didTapCloseButton() {
+    router?.dissmissAddUser()
   }
 }

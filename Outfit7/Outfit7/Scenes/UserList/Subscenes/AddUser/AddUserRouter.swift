@@ -9,11 +9,11 @@
 import Foundation
 
 protocol AddUserRoutingLogic {
-  
+  func dissmissAddUser()
 }
 
 protocol AddUserRouterDelegate: AnyObject {
-  
+  func dissmissViewController(addUserViewController: AddUserViewController)
 }
 
 class AddUserRouter {
@@ -23,5 +23,9 @@ class AddUserRouter {
 
 // MARK: - Routing Logic
 extension AddUserRouter: AddUserRoutingLogic {
-  
+  func dissmissAddUser() {
+    viewController.map {
+      delegate?.dissmissViewController(addUserViewController: $0)
+    }
+  }
 }

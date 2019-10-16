@@ -71,6 +71,13 @@ extension UserListViewController: UserListDisplayLogic {
   }
 }
 
+// MARK: - Actions
+private extension UserListViewController {
+    @objc func didTapAddButton() {
+      router?.navigateToAddUser()
+    }
+}
+
 // MARK: - Private Methods
 private extension UserListViewController {
   func setupViews() {
@@ -80,13 +87,25 @@ private extension UserListViewController {
   
   func setupNavigationHeader() {
     navigationItem.title = "Users"
+    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddButton))
   }
   
   func setupContentView() {
     view.addSubview(contentView)
     contentView.tableView.dataSource = dataSource
+    contentView.tableView.delegate = self
     contentView.snp.makeConstraints {
       $0.edges.equalToSuperview()
+    }
+  }
+}
+
+// MARK: - UITableViewDatasource
+extension UserListViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let user = userList[safe: indexPath.row]
+    user.map {
+      router?.navigateToEditUser(user: $0)
     }
   }
 }
