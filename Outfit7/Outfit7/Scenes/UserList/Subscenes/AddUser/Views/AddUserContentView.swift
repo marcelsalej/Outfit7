@@ -51,7 +51,7 @@ private extension AddUserContentView {
   
   func setupCloseButton() {
     addSubview(closeButton)
-    closeButton.imageEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+    closeButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     closeButton.snp.makeConstraints {
       $0.top.equalToSuperview().inset(15)
       $0.trailing.equalToSuperview().inset(15)

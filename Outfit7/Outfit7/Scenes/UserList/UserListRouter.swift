@@ -9,6 +9,8 @@
 import Foundation
 
 protocol UserListRoutingLogic {
+  func navigateToAddUser()
+  func navigateToEditUser(user: User)
 }
 
 protocol UserListRouterDelegate: AnyObject {
@@ -21,4 +23,20 @@ class UserListRouter {
 
 // MARK: - Routing Logic
 extension UserListRouter: UserListRoutingLogic {
+  func navigateToAddUser() {
+    let addUserViewController = AddUserViewController(delegate: self, user: nil)
+    viewController?.present(addUserViewController, animated: true)
+  }
+  
+  func navigateToEditUser(user: User) {
+    let addUserViewController = AddUserViewController(delegate: self, user: user)
+    viewController?.navigationController?.pushViewController(addUserViewController, animated: true)
+  }
+}
+
+// MARK: - AddUserRouterDelegate
+extension UserListRouter: AddUserRouterDelegate {
+  func dissmissViewController(addUserViewController: AddUserViewController) {
+    addUserViewController.dismiss(animated: true)
+  }
 }
