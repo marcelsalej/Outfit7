@@ -28,6 +28,7 @@ private extension AddUserContentView {
   func setupViews() {
     setupCloseButton()
     setupTableView()
+    setupSaveButton()
   }
   
   func setupTableView() {
@@ -35,7 +36,7 @@ private extension AddUserContentView {
     tableView.register(InputTextTableViewCell.self)
     tableView.register(InputDateTableViewCell.self)
     tableView.snp.makeConstraints {
-      $0.top.equalTo(closeButton.snp.bottom).inset(15)
+      $0.top.equalTo(closeButton.snp.bottom).offset(10)
       $0.leading.trailing.equalToSuperview()
     }
   }
@@ -44,7 +45,9 @@ private extension AddUserContentView {
     addSubview(saveButton)
     saveButton.backgroundColor = .green
     saveButton.snp.makeConstraints {
-      $0.top.leading.trailing.bottom.equalToSuperview()
+      $0.top.equalTo(tableView.snp.bottom)
+      $0.leading.trailing.equalToSuperview()
+      $0.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
       $0.height.equalTo(60)
     }
   }
@@ -53,7 +56,7 @@ private extension AddUserContentView {
     addSubview(closeButton)
     closeButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     closeButton.snp.makeConstraints {
-      $0.top.equalToSuperview().inset(15)
+      $0.top.equalTo(safeAreaLayoutGuide.snp.top).inset(5)
       $0.trailing.equalToSuperview().inset(15)
       $0.width.height.equalTo(100)
     }

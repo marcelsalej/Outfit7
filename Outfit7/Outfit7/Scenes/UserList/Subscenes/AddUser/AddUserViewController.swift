@@ -59,7 +59,6 @@ extension AddUserViewController: AddUserDisplayLogic {
 // MARK: - Private Methods
 private extension AddUserViewController {
   func setupViews() {
-    // setup title, background, navigation buttons, etc
     setupContentView()
   }
   

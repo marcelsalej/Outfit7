@@ -27,7 +27,11 @@ class InputDateTableViewCell: UITableViewCell {
 extension InputDateTableViewCell {
   func setData(_ viewModel: ViewModel) {
     placeholderLabel.text = viewModel.placeholderText
-    inputDateTextField.text = Configuration.dateFormatter.string(from: viewModel.insertedDate)
+    viewModel.insertedDate.map {
+      inputDateTextField.text = Configuration.dateFormatter.string(from: $0)
+      return
+    }
+    inputDateTextField.text = "DD/MM/YYYY"
   }
 }
 // MARK: - UI setup
@@ -59,6 +63,6 @@ private extension InputDateTableViewCell {
 extension InputDateTableViewCell {
   struct ViewModel {
     let placeholderText: String
-    let insertedDate: Date
+    let insertedDate: Date?
   }
 }
