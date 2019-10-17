@@ -81,6 +81,10 @@ private extension UserListViewController {
     @objc func didTapAddButton() {
       router?.navigateToAddUser()
     }
+  
+  @objc func didTapStatisticsButton() {
+    router?.navigateToStatistics(userList: userList)
+  }
 }
 
 // MARK: - Private Methods
@@ -93,6 +97,7 @@ private extension UserListViewController {
   func setupNavigationHeader() {
     navigationItem.title = "Users"
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddButton))
+    navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(didTapStatisticsButton))
   }
   
   func setupContentView() {

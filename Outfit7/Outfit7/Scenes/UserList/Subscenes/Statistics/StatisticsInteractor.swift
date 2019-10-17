@@ -9,7 +9,6 @@
 import Foundation
 
 protocol StatisticsBusinessLogic {
-  
 }
 
 class StatisticsInteractor {
@@ -18,5 +17,4 @@ class StatisticsInteractor {
 
 // MARK: - Business Logic
 extension StatisticsInteractor: StatisticsBusinessLogic {
-  
 }

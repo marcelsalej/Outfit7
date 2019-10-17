@@ -9,13 +9,12 @@
 import UIKit
 
 protocol StatisticsDisplayLogic: AnyObject {
-  
 }
 
 class StatisticsViewController: UIViewController {
   var interactor: StatisticsBusinessLogic?
   var router: StatisticsRoutingLogic?
-  private lazy var contentView = StatisticsContentView.autolayoutView()
+  private lazy var contentView = StatisticsContentView.setupAutoLayout()
   
   init(delegate: StatisticsRouterDelegate?) {
     super.init(nibName: nil, bundle: nil)
@@ -42,7 +41,6 @@ class StatisticsViewController: UIViewController {
 
 // MARK: - Display Logic
 extension StatisticsViewController: StatisticsDisplayLogic {
-  
 }
 
 // MARK: - Private Methods
@@ -54,6 +52,9 @@ private extension StatisticsViewController {
   
   func setupContentView() {
     view.addSubview(contentView)
-    // add constraints
+    contentView.backgroundColor = .white
+    contentView.snp.makeConstraints {
+      $0.edges.equalToSuperview()
+    }
   }
 }
