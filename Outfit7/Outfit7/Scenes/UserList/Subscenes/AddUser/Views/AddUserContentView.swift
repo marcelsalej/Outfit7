@@ -44,7 +44,7 @@ private extension AddUserContentView {
   
   func setupSaveButton() {
     addSubview(saveButton)
-    saveButton.backgroundColor = .green
+    saveButton.backgroundColor = .systemBlue
     saveButton.setTitle("Save".uppercased(), for: .normal)
     saveButton.setTitleColor(.white, for: .normal)
     saveButton.titleLabel?.font = .boldSystemFont(ofSize: 16)

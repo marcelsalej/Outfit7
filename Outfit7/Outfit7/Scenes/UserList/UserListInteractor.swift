@@ -43,7 +43,7 @@ extension UserListInteractor: UserListBusinessLogic {
     existingUserIndex.map {
       list.remove(at: $0)
     }
-    let newUser = User(id: user.id,
+    let newUser = User(id: list.count + 1,
                        name: user.name,
                        birthday: user.birthday,
                        username: user.username,
