@@ -9,6 +9,6 @@
 import UIKit
 
 enum AddUserRow {
-  case inputText(InputTextTableViewCell.ViewModel)
   case inputDate(InputDateTableViewCell.ViewModel)
+  case inputText(InputTextTableViewCell.ViewModel)
 }

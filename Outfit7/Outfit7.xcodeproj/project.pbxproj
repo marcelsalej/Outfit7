@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0DE65C1CEC7B39F6562CCF62 /* Pods_Outfit7_Outfit7UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15661948F61476D9BB8AACC /* Pods_Outfit7_Outfit7UITests.framework */; };
+		3447020523582D4400ACED2D /* InputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3447020423582D4400ACED2D /* InputType.swift */; };
+		34470207235831FD00ACED2D /* ValidationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34470206235831FD00ACED2D /* ValidationType.swift */; };
 		34994BFA2354808400505FF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994BF92354808400505FF0 /* AppDelegate.swift */; };
 		34994C032354808500505FF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34994C022354808500505FF0 /* Assets.xcassets */; };
 		34994C062354808500505FF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34994C042354808500505FF0 /* LaunchScreen.storyboard */; };
@@ -54,6 +56,8 @@
 		34994CE12355096B00505FF0 /* AddUserContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994CD82355096B00505FF0 /* AddUserContentView.swift */; };
 		34994CE22355096B00505FF0 /* AddUserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994CD92355096B00505FF0 /* AddUserRouter.swift */; };
 		34994CE62355151200505FF0 /* InputDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34994CE52355151200505FF0 /* InputDateTableViewCell.swift */; };
+		34C7AD0C2357668700D9182C /* ValidationStatusType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C7AD0B2357668700D9182C /* ValidationStatusType.swift */; };
+		34C7AD14235789EB00D9182C /* KeyboardSetupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C7AD13235789EB00D9182C /* KeyboardSetupService.swift */; };
 		7C95FD1E4D56EE1B3E490C52 /* Pods_Outfit7Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77DA3D8616ADEBE4E721E9F5 /* Pods_Outfit7Tests.framework */; };
 		E954F3750316AF06F87A196F /* Pods_Outfit7.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 235EA1555361490D1F9EAAE8 /* Pods_Outfit7.framework */; };
 /* End PBXBuildFile section */
@@ -79,6 +83,8 @@
 		1DF82B274A3C8E9743C21EAA /* Pods-Outfit7-Outfit7UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Outfit7-Outfit7UITests.release.xcconfig"; path = "Target Support Files/Pods-Outfit7-Outfit7UITests/Pods-Outfit7-Outfit7UITests.release.xcconfig"; sourceTree = "<group>"; };
 		235EA1555361490D1F9EAAE8 /* Pods_Outfit7.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Outfit7.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EC32A0B78B57FFC12766CB9 /* Pods-Outfit7.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Outfit7.release.xcconfig"; path = "Target Support Files/Pods-Outfit7/Pods-Outfit7.release.xcconfig"; sourceTree = "<group>"; };
+		3447020423582D4400ACED2D /* InputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputType.swift; sourceTree = "<group>"; };
+		34470206235831FD00ACED2D /* ValidationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationType.swift; sourceTree = "<group>"; };
 		34994BF62354808400505FF0 /* Outfit7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Outfit7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34994BF92354808400505FF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34994C022354808500505FF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,6 +136,8 @@
 		34994CD82355096B00505FF0 /* AddUserContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserContentView.swift; sourceTree = "<group>"; };
 		34994CD92355096B00505FF0 /* AddUserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserRouter.swift; sourceTree = "<group>"; };
 		34994CE52355151200505FF0 /* InputDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDateTableViewCell.swift; sourceTree = "<group>"; };
+		34C7AD0B2357668700D9182C /* ValidationStatusType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationStatusType.swift; sourceTree = "<group>"; };
+		34C7AD13235789EB00D9182C /* KeyboardSetupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardSetupService.swift; sourceTree = "<group>"; };
 		70972DA41EF88DB5F0A216E1 /* Pods-Outfit7Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Outfit7Tests.debug.xcconfig"; path = "Target Support Files/Pods-Outfit7Tests/Pods-Outfit7Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		716202D340D01F322B447E85 /* Pods-Outfit7.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Outfit7.debug.xcconfig"; path = "Target Support Files/Pods-Outfit7/Pods-Outfit7.debug.xcconfig"; sourceTree = "<group>"; };
 		77DA3D8616ADEBE4E721E9F5 /* Pods_Outfit7Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Outfit7Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -275,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				34994C302354849800505FF0 /* InitialSceneSetupService.swift */,
+				34C7AD13235789EB00D9182C /* KeyboardSetupService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -433,6 +442,9 @@
 				34994CCF2355096B00505FF0 /* AddUserDataSource.swift */,
 				34994CD02355096B00505FF0 /* AddUserRow.swift */,
 				34994CD12355096B00505FF0 /* AddUserSection.swift */,
+				34C7AD0B2357668700D9182C /* ValidationStatusType.swift */,
+				3447020423582D4400ACED2D /* InputType.swift */,
+				34470206235831FD00ACED2D /* ValidationType.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -722,6 +734,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34470207235831FD00ACED2D /* ValidationType.swift in Sources */,
 				34994C8C23548FF500505FF0 /* UserListRouter.swift in Sources */,
 				34994CDF2355096B00505FF0 /* AddUserViewController.swift in Sources */,
 				34994CDA2355096B00505FF0 /* AddUserDataSource.swift in Sources */,
@@ -732,6 +745,7 @@
 				34994CE12355096B00505FF0 /* AddUserContentView.swift in Sources */,
 				34994CB42354E97800505FF0 /* UserTableViewCell.swift in Sources */,
 				34994C982354D4DA00505FF0 /* Configuration.swift in Sources */,
+				34C7AD14235789EB00D9182C /* KeyboardSetupService.swift in Sources */,
 				34994CB02354E94400505FF0 /* UserListRow.swift in Sources */,
 				34994CAF2354E94400505FF0 /* UserListDataSource.swift in Sources */,
 				34994C35235484A700505FF0 /* AppFlowController.swift in Sources */,
@@ -748,9 +762,11 @@
 				34994C47235484F500505FF0 /* UIFont+Extra.swift in Sources */,
 				34994C312354849800505FF0 /* Process.swift in Sources */,
 				34994C8B23548FF500505FF0 /* UserListContentView.swift in Sources */,
+				3447020523582D4400ACED2D /* InputType.swift in Sources */,
 				34994CE02355096B00505FF0 /* AddUserInteractor.swift in Sources */,
 				34994C4D235484F500505FF0 /* UIView+Extra.swift in Sources */,
 				34994CA52354DE2500505FF0 /* JSONDecoder+Extra.swift in Sources */,
+				34C7AD0C2357668700D9182C /* ValidationStatusType.swift in Sources */,
 				34994C322354849800505FF0 /* Service.swift in Sources */,
 				34994C4E235484F500505FF0 /* Collection+Extra.swift in Sources */,
 				34994C9D2354D9B900505FF0 /* Mocker.swift in Sources */,

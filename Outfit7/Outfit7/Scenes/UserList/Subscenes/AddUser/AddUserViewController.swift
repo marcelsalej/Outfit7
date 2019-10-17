@@ -59,7 +59,6 @@ extension AddUserViewController: AddUserDisplayLogic {
 // MARK: - Private Methods
 private extension AddUserViewController {
   func setupViews() {
-    // setup title, background, navigation buttons, etc
     setupContentView()
   }
   
@@ -68,6 +67,7 @@ private extension AddUserViewController {
     contentView.backgroundColor = .white
     contentView.tableView.dataSource = dataSource
     contentView.closeButton.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
+    contentView.saveButton.addTarget(self, action: #selector(didTapSaveButton), for: .touchUpInside)
     contentView.snp.makeConstraints {
       $0.edges.equalToSuperview()
     }
@@ -83,5 +83,40 @@ private extension AddUserViewController {
 private extension AddUserViewController {
   @objc func didTapCloseButton() {
     router?.dissmissAddUser()
+  }
+  
+  @objc func didTapSaveButton() {
+    switch dataSource.validateAll() {
+    case true:
+      guard let name = dataSource.getValidViewModel(inputType: .name),
+        let email = dataSource.getValidViewModel(inputType: .email),
+        let username = dataSource.getValidViewModel(inputType: .username),
+        let birthDate = dataSource.getValidViewModel(inputType: .birthdate),
+        let salary = dataSource.getValidViewModel(inputType: .salary),
+        let rating = dataSource.getValidViewModel(inputType: .rating),
+        let birthdayDate = Configuration.dateFormatter.date(from: birthDate),
+        let salaryDouble = Double(salary),
+        let ratingDouble = Double(rating.replacingOccurrences(of: " ", with: "")) else { return }
+      
+      user.map {
+        router?.dissmissAndSave(user: User(id: $0.id,
+                                           name: name,
+                                           birthday: birthdayDate,
+                                           username: username,
+                                           email: email,
+                                           salary: salaryDouble,
+                                           rating: ratingDouble))
+        return
+      }
+      router?.dissmissAndSave(user: User(id: 0,
+                                         name: name,
+                                         birthday: birthdayDate,
+                                         username: username,
+                                         email: email,
+                                         salary: salaryDouble,
+                                         rating: ratingDouble))
+    case false:
+      break
+    }
   }
 }
