@@ -11,6 +11,7 @@ import UIKit
 protocol UserListDisplayLogic: AnyObject {
   func displayUserListSuccess(userList: [User])
   func displayUserListRemovalSuccess(updatedUsersList: [User])
+  func displayFormUser(user: User)
   func displayUserListError()
 }
 
@@ -69,6 +70,17 @@ extension UserListViewController: UserListDisplayLogic {
     contentView.tableView.reloadData()
     contentView.toggleLoading(false)
   }
+  
+  func displayFormUser(user: User) {
+    interactor?.saveOrEditUser(user: user, userList: userList)
+  }
+}
+
+// MARK: - Actions
+private extension UserListViewController {
+    @objc func didTapAddButton() {
+      router?.navigateToAddUser()
+    }
 }
 
 // MARK: - Private Methods
@@ -80,13 +92,25 @@ private extension UserListViewController {
   
   func setupNavigationHeader() {
     navigationItem.title = "Users"
+    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddButton))
   }
   
   func setupContentView() {
     view.addSubview(contentView)
     contentView.tableView.dataSource = dataSource
+    contentView.tableView.delegate = self
     contentView.snp.makeConstraints {
       $0.edges.equalToSuperview()
+    }
+  }
+}
+
+// MARK: - UITableViewDatasource
+extension UserListViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let user = userList[safe: indexPath.row]
+    user.map {
+      router?.navigateToEditUser(user: $0)
     }
   }
 }
@@ -94,7 +118,6 @@ private extension UserListViewController {
 // MARK: UserListDataSourceDelegate
 extension UserListViewController: UserListDataSourceDelegate {
   func willRemoveUser(at indexPath: IndexPath) {
-    print("IndexPath  \(indexPath)")
     interactor?.deleteUser(userList: userList, removedUser: userList[indexPath.row])
     contentView.tableView.reloadData()
   }
