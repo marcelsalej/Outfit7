@@ -73,7 +73,10 @@ private extension AddUserViewController {
     }
     switch user {
     case .some:
-      contentView.closeButton.isHidden = true
+      contentView.closeButton.removeFromSuperview()
+      contentView.tableView.snp.makeConstraints {
+        $0.top.equalToSuperview()
+      }
     case .none:
       contentView.closeButton.isHidden = false
     }
