@@ -36,6 +36,14 @@ extension UserListRouter: UserListRoutingLogic {
 
 // MARK: - AddUserRouterDelegate
 extension UserListRouter: AddUserRouterDelegate {
+  func dissmissAndSave(user: User, addUserViewController: AddUserViewController) {
+    viewController?.displayFormUser(user: user)
+    if viewController?.navigationController?.viewControllers.count == 2 {
+      addUserViewController.navigationController?.popViewController(animated: true)
+    }
+    addUserViewController.dismiss(animated: true)
+  }
+  
   func dissmissViewController(addUserViewController: AddUserViewController) {
     addUserViewController.dismiss(animated: true)
   }

@@ -11,5 +11,5 @@ import Foundation
 enum ValidationStatusType {
   case new
   case valid
-  case unvalid(error: Error)
+  case invalid(message: String)
 }

@@ -11,6 +11,7 @@ import UIKit
 protocol UserListDisplayLogic: AnyObject {
   func displayUserListSuccess(userList: [User])
   func displayUserListRemovalSuccess(updatedUsersList: [User])
+  func displayFormUser(user: User)
   func displayUserListError()
 }
 
@@ -68,6 +69,10 @@ extension UserListViewController: UserListDisplayLogic {
     dataSource.setData(users: userList)
     contentView.tableView.reloadData()
     contentView.toggleLoading(false)
+  }
+  
+  func displayFormUser(user: User) {
+    interactor?.saveOrEditUser(user: user, userList: userList)
   }
 }
 

@@ -23,7 +23,7 @@ extension UserListDataSource {
     sections.removeAll()
     var rows = [UserListRow]()
     users.forEach {
-      rows.append(.user(.init(id: $0.id,
+      rows.append(.user(.init(id: $0.id ?? 0,
                               name: $0.name,
                               birthDate: $0.birthday,
                               salary: $0.salary,

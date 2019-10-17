@@ -9,7 +9,6 @@
 import Foundation
 
 protocol AddUserPresentationLogic {
-  
 }
 
 class AddUserPresenter {
@@ -18,5 +17,4 @@ class AddUserPresenter {
 
 // MARK: - Presentation Logic
 extension AddUserPresenter: AddUserPresentationLogic {
-  
 }
