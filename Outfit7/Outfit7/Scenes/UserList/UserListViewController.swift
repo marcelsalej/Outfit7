@@ -118,7 +118,6 @@ extension UserListViewController: UITableViewDelegate {
 // MARK: UserListDataSourceDelegate
 extension UserListViewController: UserListDataSourceDelegate {
   func willRemoveUser(at indexPath: IndexPath) {
-    print("IndexPath  \(indexPath)")
     interactor?.deleteUser(userList: userList, removedUser: userList[indexPath.row])
     contentView.tableView.reloadData()
   }

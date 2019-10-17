@@ -101,8 +101,8 @@ private extension AddUserViewController {
         let salaryDouble = Double(salary),
         let ratingDouble = Double(rating.replacingOccurrences(of: " ", with: "")) else { return }
       
-      user.map {
-        router?.dissmissAndSave(user: User(id: $0.id,
+      if let user = user {
+        router?.dissmissAndSave(user: User(id: user.id,
                                            name: name,
                                            birthday: birthdayDate,
                                            username: username,
