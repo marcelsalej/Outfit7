@@ -11,6 +11,7 @@ import Foundation
 protocol UserListRoutingLogic {
   func navigateToAddUser()
   func navigateToEditUser(user: User)
+  func navigateToStatistics(userList: [User])
 }
 
 protocol UserListRouterDelegate: AnyObject {
@@ -32,6 +33,11 @@ extension UserListRouter: UserListRoutingLogic {
     let addUserViewController = AddUserViewController(delegate: self, user: user)
     viewController?.navigationController?.pushViewController(addUserViewController, animated: true)
   }
+  
+  func navigateToStatistics(userList: [User]) {
+    let statisticsViewController = StatisticsViewController(delegate: self)
+    viewController?.navigationController?.pushViewController(statisticsViewController, animated: true)
+  }
 }
 
 // MARK: - AddUserRouterDelegate
@@ -49,3 +55,5 @@ extension UserListRouter: AddUserRouterDelegate {
     addUserViewController.dismiss(animated: true)
   }
 }
+
+extension UserListRouter: StatisticsRouterDelegate {}
