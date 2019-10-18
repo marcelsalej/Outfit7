@@ -59,6 +59,11 @@ extension StatisticsViewController: StatisticsDisplayLogic {
 private extension StatisticsViewController {
   func setupViews() {
     setupContentView()
+    setupNavigation()
+  }
+  
+  func setupNavigation() {
+    navigationItem.title = "Statistics".uppercased()
   }
   
   func setupContentView() {

@@ -30,24 +30,12 @@ class StatisticsContentView: UIView {
 // MARK: - Private Methods
 private extension StatisticsContentView {
   func setupViews() {
-    setupStatisticsTitleLabel()
     setupAvgSalaryLabel()
     setupAvgSalaryValueLabel()
     setupAvgAgeLabel()
     setupAvgAgeValueLabel()
     setupMaxRatingLabel()
     setupMaxRatingValueLabel()
-  }
-  
-  func setupStatisticsTitleLabel() {
-    addSubview(statisticsTitleLabel)
-    statisticsTitleLabel.text = "Statistics".uppercased()
-    statisticsTitleLabel.textColor = .black
-    statisticsTitleLabel.font = .boldSystemFont(ofSize: 18)
-    statisticsTitleLabel.snp.makeConstraints {
-      $0.top.equalTo(safeAreaLayoutGuide.snp.top).offset(20)
-      $0.centerX.equalToSuperview()
-    }
   }
   
   func setupAvgSalaryLabel() {
@@ -57,7 +45,7 @@ private extension StatisticsContentView {
     avgSalaryLabel.lineBreakMode = .byClipping
     avgSalaryLabel.font = .boldSystemFont(ofSize: 12)
     avgSalaryLabel.snp.makeConstraints {
-      $0.top.equalTo(statisticsTitleLabel.snp.bottom).offset(20)
+      $0.top.equalTo(safeAreaLayoutGuide.snp.top).offset(20)
       $0.leading.equalToSuperview().inset(15)
     }
   }
@@ -68,7 +56,7 @@ private extension StatisticsContentView {
     avgSalaryValueLabel.textAlignment = .left
     avgSalaryValueLabel.font = .boldSystemFont(ofSize: 14)
     avgSalaryValueLabel.snp.makeConstraints {
-      $0.top.equalTo(statisticsTitleLabel.snp.bottom).offset(20)
+      $0.top.equalTo(safeAreaLayoutGuide.snp.top).offset(20)
       $0.leading.equalTo(avgSalaryLabel.snp.trailing).offset(5)
       $0.trailing.equalToSuperview().inset(15)
       $0.width.equalTo(avgSalaryLabel).multipliedBy(3.5)
