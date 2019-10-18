@@ -9,14 +9,17 @@
 import UIKit
 
 protocol StatisticsDisplayLogic: AnyObject {
+  func displayStatisticsView(viewModel: StatisticsViewController.ViewModel)
 }
 
 class StatisticsViewController: UIViewController {
   var interactor: StatisticsBusinessLogic?
   var router: StatisticsRoutingLogic?
   private lazy var contentView = StatisticsContentView.setupAutoLayout()
+  private let userList: [User]
   
-  init(delegate: StatisticsRouterDelegate?) {
+  init(delegate: StatisticsRouterDelegate?, userList: [User]) {
+    self.userList = userList
     super.init(nibName: nil, bundle: nil)
     let interactor = StatisticsInteractor()
     let presenter = StatisticsPresenter()
@@ -36,17 +39,20 @@ class StatisticsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupViews()
+    interactor?.calculateStatistics(for: userList)
   }
 }
 
 // MARK: - Display Logic
 extension StatisticsViewController: StatisticsDisplayLogic {
+  func displayStatisticsView(viewModel: StatisticsViewController.ViewModel) {
+    print("ViewModel  \(viewModel)  create ui tommrw")
+  }
 }
 
 // MARK: - Private Methods
 private extension StatisticsViewController {
   func setupViews() {
-    // setup title, background, navigation buttons, etc
     setupContentView()
   }
   
@@ -56,5 +62,13 @@ private extension StatisticsViewController {
     contentView.snp.makeConstraints {
       $0.edges.equalToSuperview()
     }
+  }
+}
+
+extension StatisticsViewController {
+  struct ViewModel {
+    let avgSalary: Double
+    let avgAge: Double
+    let maxRating: Double
   }
 }
