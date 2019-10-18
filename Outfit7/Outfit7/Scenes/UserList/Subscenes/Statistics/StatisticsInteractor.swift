@@ -9,6 +9,7 @@
 import Foundation
 
 protocol StatisticsBusinessLogic {
+  func calculateStatistics(for userList: [User])
 }
 
 class StatisticsInteractor {
@@ -17,4 +18,7 @@ class StatisticsInteractor {
 
 // MARK: - Business Logic
 extension StatisticsInteractor: StatisticsBusinessLogic {
+  func calculateStatistics(for userList: [User]) {
+    presenter?.presentStatistics(for: userList)
+  }
 }
