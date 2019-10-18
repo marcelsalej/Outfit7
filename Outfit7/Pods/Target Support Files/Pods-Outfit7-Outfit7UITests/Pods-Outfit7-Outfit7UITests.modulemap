@@ -1,0 +1,6 @@
+framework module Pods_Outfit7_Outfit7UITests {
+  umbrella header "Pods-Outfit7-Outfit7UITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
