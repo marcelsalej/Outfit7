@@ -35,7 +35,7 @@ extension UserListRouter: UserListRoutingLogic {
   }
   
   func navigateToStatistics(userList: [User]) {
-    let statisticsViewController = StatisticsViewController(delegate: self)
+    let statisticsViewController = StatisticsViewController(delegate: self, userList: userList)
     viewController?.navigationController?.pushViewController(statisticsViewController, animated: true)
   }
 }

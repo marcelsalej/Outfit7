@@ -22,7 +22,5 @@ class StatisticsContentView: UIView {
 // MARK: - Private Methods
 private extension StatisticsContentView {
   func setupViews() {
-    // setup background, shadows, etc
-    // call other views setup
   }
 }

@@ -46,7 +46,6 @@ class StatisticsViewController: UIViewController {
 // MARK: - Display Logic
 extension StatisticsViewController: StatisticsDisplayLogic {
   func displayStatisticsView(viewModel: StatisticsViewController.ViewModel) {
-    print("ViewModel  \(viewModel)  create ui tommrw")
   }
 }
 
