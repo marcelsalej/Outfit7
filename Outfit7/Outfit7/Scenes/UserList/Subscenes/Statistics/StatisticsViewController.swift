@@ -46,6 +46,12 @@ class StatisticsViewController: UIViewController {
 // MARK: - Display Logic
 extension StatisticsViewController: StatisticsDisplayLogic {
   func displayStatisticsView(viewModel: StatisticsViewController.ViewModel) {
+    contentView.avgSalaryValueLabel.text = String(format: "%.2f", viewModel.avgSalary)
+    let dateComponentsFormatter = DateComponentsFormatter()
+    dateComponentsFormatter.allowedUnits = [.year, .day]
+    dateComponentsFormatter.unitsStyle = .full
+    contentView.avgAgeValueLabel.text = dateComponentsFormatter.string(from: abs(viewModel.avgAge))
+    contentView.maxRatingValueLabel.text = String(format: "%.2f", viewModel.maxRating)
   }
 }
 

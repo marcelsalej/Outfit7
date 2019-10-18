@@ -202,9 +202,9 @@
 			children = (
 				344702292359940F00ACED2D /* Views */,
 				3447022023591A6300ACED2D /* StatisticsRouter.swift */,
-				3447022123591A6300ACED2D /* StatisticsContentView.swift */,
 				3447022223591A6300ACED2D /* StatisticsInteractor.swift */,
 				3447022323591A6300ACED2D /* StatisticsPresenter.swift */,
+				3447021F23591A6300ACED2D /* StatisticsViewController.swift */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -212,7 +212,7 @@
 		344702292359940F00ACED2D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3447021F23591A6300ACED2D /* StatisticsViewController.swift */,
+				3447022123591A6300ACED2D /* StatisticsContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
